@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 /* ── TOKENS ──
    카카오페이 디자인 가이드 반영:
@@ -39,6 +40,8 @@
 
   --font-display: "Pretendard", "SF Pro Display", "Inter", system-ui, -apple-system, sans-serif;
   --font-text: "Pretendard", "SF Pro Text", "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "Roboto Mono", "SF Mono", ui-monospace, monospace;
+  --growth-green: #00c853;
 }
 
 /* ── RESET ── */
@@ -293,7 +296,7 @@ nav {
 }
 .career-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   background: var(--hairline);
   border: 1px solid var(--hairline);
@@ -301,6 +304,8 @@ nav {
   overflow: hidden;
   text-align: left;
 }
+.career-grid-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.career-grid-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 .career-card {
   background: var(--canvas);
   padding: 32px 28px;
@@ -357,7 +362,7 @@ nav {
 /* ── SITUATION-INSIGHT-EXECUTION (SIE) ── */
 .sie-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   text-align: left;
   margin-bottom: 64px;
@@ -430,6 +435,7 @@ nav {
   line-height: 1; letter-spacing: -0.374px;
   color: var(--primary);
 }
+.work-contrib-num-dark { color: var(--primary-on-dark); }
 .work-contrib-label {
   font-size: 12px; color: var(--ink-muted-48);
   margin-top: 2px;
@@ -465,15 +471,55 @@ nav {
 .work-link:hover { text-decoration: underline; }
 .work-link-dark { color: var(--primary-on-dark); }
 
+/* ── FEATURE CARD DESC (career-grid 재사용 시 짧은 설명) ── */
+.career-desc { font-size: 13px; color: var(--ink-muted-80); line-height: 1.5; margin-top: 8px; }
+
+/* ── STATUS BADGE (심사/검토 결과 표시용 시맨틱 컬러 — 브랜드 옐로우와 별도) ── */
+.status-badge {
+  font-size: 13px; font-weight: 600;
+  padding: 6px 14px; border-radius: 9999px;
+  display: inline-block;
+}
+.status-badge-bad { background: rgba(239,68,68,0.18); color: #fca5a5; }
+.status-badge-check { background: rgba(245,158,11,0.2); color: #fcd34d; }
+.status-badge-ok { background: rgba(16,185,129,0.18); color: #6ee7b7; }
+
+
+/* ── DASHBOARD SPOTLIGHT CAROUSEL (실제 dashboard_demo.html 라이브 임베드) ── */
+.spotlight-carousel { position: relative; }
+.spotlight-viewport { overflow: hidden; border-radius: 20px; }
+.spotlight-track { display: flex; transition: transform 0.45s cubic-bezier(0.4,0,0.2,1); }
+.spotlight-slide { flex: 0 0 100%; min-width: 0; }
+.spotlight { display: flex; flex-direction: column; gap: 18px; }
+.spotlight-num { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; color: var(--primary-on-dark); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+.spotlight-num .circle { width: 22px; height: 22px; border-radius: 50%; background: var(--brand-yellow); color: #1c1a12; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; }
+.spotlight-text h3 { font-family: var(--font-display); font-size: 21px; font-weight: 600; color: var(--on-dark); margin-bottom: 10px; }
+.spotlight-text p { color: var(--body-muted); font-size: 14.5px; line-height: 1.6; max-width: 780px; }
+.spotlight-badges { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 12px; }
+.spotlight-frame-wrap { position: relative; width: 100%; height: 560px; overflow: hidden; border-radius: 18px; box-shadow: rgba(0,0,0,0.35) 0 16px 40px 0; background: #f5f6fa; }
+.spotlight-frame-wrap iframe { position: absolute; top: 0; left: 0; width: 1720px; height: 1070px; border: none; transform: scale(0.6); transform-origin: top left; }
+.spotlight-frame-note { font-size: 11.5px; color: var(--body-muted); margin-top: 8px; text-align: center; }
+.spotlight-controls { display: flex; align-items: center; justify-content: center; gap: 22px; margin-top: 28px; }
+.spotlight-arrow { width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.06); font-size: 16px; color: var(--on-dark); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .15s, border-color .15s, color .15s; flex-shrink: 0; }
+.spotlight-arrow:hover { background: rgba(255,235,0,0.14); border-color: var(--brand-yellow); color: var(--brand-yellow); }
+.spotlight-dots { display: flex; align-items: center; gap: 8px; }
+.spotlight-dots .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.24); cursor: pointer; border: none; padding: 0; transition: all .2s; }
+.spotlight-dots .dot.active { background: var(--brand-yellow); width: 22px; border-radius: 4px; }
+@media (max-width: 900px) {
+  .spotlight-frame-wrap { height: 300px; }
+  .spotlight-frame-wrap iframe { transform: scale(0.31); }
+}
+
 /* ── GALLERY ── */
 .gallery-grid {
   display: grid;
   gap: 12px;
   margin-top: 24px;
 }
-.gallery-2 { grid-template-columns: repeat(2, 1fr); }
-.gallery-3 { grid-template-columns: repeat(3, 1fr); }
-.gallery-4 { grid-template-columns: repeat(4, 1fr); }
+.gallery-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.gallery-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gallery-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.gallery-grid-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .gallery-1-2 { grid-template-columns: 1fr 1fr; }
 
 .gallery-img {
@@ -490,8 +536,8 @@ nav {
   gap: 12px;
   margin-top: 24px;
 }
-.yt-2 { grid-template-columns: repeat(2, 1fr); }
-.yt-3 { grid-template-columns: repeat(3, 1fr); }
+.yt-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.yt-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .yt-card {
   position: relative;
   border-radius: 18px;
@@ -552,8 +598,8 @@ nav {
   gap: 12px;
   margin-top: 24px;
 }
-.yt-embed-2 { grid-template-columns: repeat(2, 1fr); }
-.yt-embed-3 { grid-template-columns: repeat(3, 1fr); }
+.yt-embed-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.yt-embed-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 /* ── PRESS LINKS ── */
 .press-list {
@@ -620,6 +666,23 @@ nav {
   color: var(--primary-on-dark);
 }
 
+/* ── SIDE PROJECT STRIP ── */
+.side-strip {
+  display: flex; align-items: center; gap: 16px;
+  margin-top: 16px; padding: 18px 28px;
+  border: 1px dashed var(--hairline); border-radius: 18px;
+  background: var(--canvas); text-decoration: none; text-align: left;
+  transition: border-color .2s;
+}
+.side-strip:hover { border-color: var(--primary); }
+.side-strip-label { font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--primary); white-space: nowrap; }
+.side-strip-text { font-size: 14px; color: var(--ink-muted-80); flex: 1; }
+.side-strip-arrow { color: var(--primary); }
+@media (max-width: 640px) {
+  .side-strip { flex-wrap: wrap; gap: 6px 12px; padding: 16px 20px; }
+  .side-strip-arrow { display: none; }
+}
+
 /* ── FOOTER ── */
 footer {
   background: var(--canvas-parchment);
@@ -656,24 +719,71 @@ footer {
   margin-top: 24px;
 }
 
+
+/* ── SHORTS (9:16) ── */
+.shorts-grid { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:12px; margin-top:24px; }
+.shorts-card { position:relative; display:block; aspect-ratio:9/16; border-radius:16px; overflow:hidden; background:#111; text-decoration:none; box-shadow: rgba(0,0,0,0.18) 3px 5px 30px 0; }
+.shorts-card img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s ease; }
+.shorts-card:hover img { transform:scale(1.04); }
+.shorts-card .shorts-cap { position:absolute; left:0; right:0; bottom:0; padding:28px 10px 10px; font-size:12px; font-weight:600; line-height:1.4; color:#fff; background:linear-gradient(transparent, rgba(0,0,0,.78)); }
+@media (max-width: 834px) { .shorts-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media (max-width: 419px) { .shorts-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+
+
+/* ── CHAPTERS & TABS ── */
+.chapter-head { padding-bottom: 40px; }
+.chapter-head .display-md em { font-style: normal; color: var(--primary); }
+.chapter-desc { margin-top: 14px; font-size: 17px; color: var(--ink-muted-48); }
+.tabbar-wrap { position: sticky; top: 44px; z-index: 50; padding: 0 22px 20px; border-bottom: 1px solid var(--hairline); }
+.tabbar-wrap.is-stuck { padding-top: 12px; padding-bottom: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+.tabbar { max-width: 980px; margin: 0 auto; display: flex; gap: 8px; justify-content: center; overflow-x: auto; scrollbar-width: none; }
+.tabbar::-webkit-scrollbar { display: none; }
+.tab-btn { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 10px 22px; border-radius: 9999px; border: 1px solid var(--hairline); background: var(--canvas); color: var(--ink); font-family: var(--font-text); cursor: pointer; transition: background .2s, border-color .2s; }
+.tab-btn:hover { border-color: var(--primary); }
+.tab-btn[aria-selected="true"] { background: var(--brand-yellow); border-color: var(--brand-yellow); }
+.tab-name { font-size: 15px; font-weight: 600; letter-spacing: -0.2px; }
+.tab-sub { font-size: 11px; color: var(--ink-muted-48); letter-spacing: 0; }
+.tab-btn[aria-selected="true"] .tab-sub { color: #5c4f00; }
+.tab-panel[hidden] { display: none; }
+.tab-panel { animation: panelIn .35s ease; }
+@keyframes panelIn { from { opacity: 0; } to { opacity: 1; } }
+.career-card[data-goto] { cursor: pointer; transition: background .2s; }
+.career-card[data-goto]:hover { background: var(--surface-pearl); }
+.career-card[data-goto]:hover .career-company { color: var(--primary); }
+@media (max-width: 640px) {
+  .tabbar { justify-content: flex-start; }
+  .tabbar-wrap { padding-left: 16px; padding-right: 16px; }
+  .tab-btn { padding: 8px 16px; }
+  .tab-name { font-size: 14px; }
+}
+
+.tile-dark .stat-num, .tile-dark-2 .stat-num, .tile-dark-3 .stat-num { color: var(--primary-on-dark); }
+@media (max-width: 640px) {
+  .stats-row { gap: 20px 12px; padding: 24px 16px; }
+  .stat-num { font-size: 26px; }
+  .stat-desc { font-size: 12px; }
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 834px) {
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
-  .career-grid { grid-template-columns: repeat(2, 1fr); }
+  .career-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sie-grid { grid-template-columns: 1fr; }
   .hero-name { font-size: 40px; }
   .hero-sub { font-size: 21px; }
   .display-lg { font-size: 34px; }
   .hero-display { font-size: 40px; }
-  .gallery-3, .gallery-4 { grid-template-columns: repeat(2, 1fr); }
+  .gallery-3, .gallery-4, .gallery-grid-5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .career-grid-6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .tile { padding: 64px 22px; }
 }
 @media (max-width: 640px) {
   .hero-name { font-size: 34px; }
   .career-grid { grid-template-columns: 1fr; }
   .gallery-2 { grid-template-columns: 1fr; }
-  .gallery-3, .gallery-4 { grid-template-columns: 1fr; }
+  .gallery-3, .gallery-4, .gallery-grid-5 { grid-template-columns: 1fr; }
+  .career-grid-6 { grid-template-columns: 1fr; }
   .tile { padding: 48px 16px; }
   .hero-stats { gap: 24px; }
   .stats-row { gap: 24px; }
@@ -694,10 +804,8 @@ footer {
   <ul class="nav-links">
     <li><a href="#hero">Intro</a></li>
     <li><a href="#career">Career</a></li>
-    <li><a href="#moneymove">MoneyMove</a></li>
-    <li><a href="#hana">Hana</a></li>
-    <li><a href="#nh">NH농협</a></li>
-    <li><a href="#kurly">Kurly</a></li>
+    <li><a href="#career-projects">Career Projects</a></li>
+    <li><a href="#ai-projects">AI Projects</a></li>
   </ul>
   <button class="nav-hamburger" onclick="toggleMenu()" aria-label="메뉴">
     <span></span><span></span><span></span>
@@ -707,10 +815,8 @@ footer {
 <div class="nav-mobile-menu" id="mobileMenu">
   <a href="#hero" onclick="closeMenu()">Intro</a>
   <a href="#career" onclick="closeMenu()">Career</a>
-  <a href="#moneymove" onclick="closeMenu()">MoneyMove</a>
-  <a href="#hana" onclick="closeMenu()">Hana</a>
-  <a href="#nh" onclick="closeMenu()">NH농협</a>
-  <a href="#kurly" onclick="closeMenu()">Kurly</a>
+  <a href="#career-projects" onclick="closeMenu()">Career Projects</a>
+  <a href="#ai-projects" onclick="closeMenu()">AI Projects</a>
 </div>
 
 <!-- ── HERO ── -->
@@ -718,7 +824,7 @@ footer {
   <div>
     <p class="hero-eyebrow">Marketing Portfolio</p>
     <h1 class="hero-name">KIM JUNG A</h1>
-    <p class="hero-sub">Brand Content &amp; PR · Digital Performance</p>
+    <p class="hero-sub">Digital Performance · Brand Content &amp; PR</p>
     <div class="hero-cta">
       <a href="#career" class="btn-primary">경력 보기</a>
       <a href="mailto:jacuby@naver.com" class="btn-secondary" style="color:#FFEB00; border-color:rgba(255,235,0,0.5);">Contact</a>
@@ -737,7 +843,7 @@ footer {
 
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="hero-stat-num">10+</div>
+        <div class="hero-stat-num">8+</div>
         <div class="hero-stat-label">Years Exp.</div>
       </div>
       <div class="hero-stat">
@@ -759,9 +865,19 @@ footer {
     <h2 class="display-md career-headline">
       <em>데이터</em>로 움직이고, <em>콘텐츠</em>로 설득하는<br>올라운더 마케터
     </h2>
-    <div class="career-grid">
-      <div class="career-card">
+    <div class="career-grid career-grid-5">
+      <div class="career-card" data-goto="ai-projects" role="link" tabindex="0">
         <div class="career-num">01</div>
+        <div class="career-company">개인 프로젝트 (AI 활용)</div>
+        <div class="career-period">2026 – 현재</div>
+        <div class="career-tags">
+          <span class="career-tag">마케팅 대시보드 제작</span>
+          <span class="career-tag">토스 미니앱 출시</span>
+          <span class="career-tag">진돗개 쇼츠 제작</span>
+        </div>
+      </div>
+      <div class="career-card" data-goto="moneymove" role="link" tabindex="0">
+        <div class="career-num">02</div>
         <div class="career-company">머니무브</div>
         <div class="career-period">2023 – 2025</div>
         <div class="career-tags">
@@ -770,8 +886,8 @@ footer {
           <span class="career-tag">고객 퍼널 분석</span>
         </div>
       </div>
-      <div class="career-card">
-        <div class="career-num">02</div>
+      <div class="career-card" data-goto="hana" role="link" tabindex="0">
+        <div class="career-num">03</div>
         <div class="career-company">하나대체투자자산운용</div>
         <div class="career-period">2020 – 2022</div>
         <div class="career-tags">
@@ -780,8 +896,8 @@ footer {
           <span class="career-tag">유튜브 정보형 · 예능형 운영</span>
         </div>
       </div>
-      <div class="career-card">
-        <div class="career-num">03</div>
+      <div class="career-card" data-goto="nh" role="link" tabindex="0">
+        <div class="career-num">04</div>
         <div class="career-company">NH농협은행</div>
         <div class="career-period">2016 – 2018</div>
         <div class="career-tags">
@@ -790,8 +906,8 @@ footer {
           <span class="career-tag">Instagram · Blog · Kakao 운영</span>
         </div>
       </div>
-      <div class="career-card">
-        <div class="career-num">04</div>
+      <div class="career-card" data-goto="kurly" role="link" tabindex="0">
+        <div class="career-num">05</div>
         <div class="career-company">(주)컬리</div>
         <div class="career-period">2015 – 2016</div>
         <div class="career-tags">
@@ -804,8 +920,32 @@ footer {
   </div>
 </section>
 
+<!-- ══ CHAPTER: Career Projects ══ -->
+<div class="chapter" id="career-projects">
+  <section class="chapter-head tile tile-light">
+    <div class="tile-inner">
+      <h2 class="display-md">Career Projects</h2>
+      <p class="chapter-desc">금융·이커머스 브랜드에서 직접 기획하고 성과를 만든 대표 프로젝트</p>
+    </div>
+  </section>
+  <div class="tabbar-wrap tile-light">
+    <div class="tabbar" role="tablist" aria-label="Career Projects">
+      <button class="tab-btn" role="tab" data-tab="moneymove" aria-selected="true">
+        <span class="tab-name">머니무브</span><span class="tab-sub">2023 – 2025</span>
+      </button>
+      <button class="tab-btn" role="tab" data-tab="hana" aria-selected="false">
+        <span class="tab-name">하나대체투자</span><span class="tab-sub">2020 – 2022</span>
+      </button>
+      <button class="tab-btn" role="tab" data-tab="nh" aria-selected="false">
+        <span class="tab-name">NH농협카드</span><span class="tab-sub">2016 – 2018</span>
+      </button>
+      <button class="tab-btn" role="tab" data-tab="kurly" aria-selected="false">
+        <span class="tab-name">컬리</span><span class="tab-sub">2015 – 2016</span>
+      </button>
+    </div>
+  </div>
 <!-- ── MONEYMOVE ── -->
-<section id="moneymove" class="tile tile-dark">
+<section id="moneymove" class="tile tile-dark tab-panel" role="tabpanel">
   <div class="tile-inner">
     <span class="section-chip section-chip-dark">MONEYMOVE</span>
     <h2 class="display-lg project-headline">온투업 플랫폼의<br>브랜드 신뢰 구축 전략</h2>
@@ -838,7 +978,7 @@ footer {
           <div class="work-subtitle work-subtitle-dark">투자 홍보 영상</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num">80%</div>
+          <div class="work-contrib-num work-contrib-num-dark">80%</div>
           <div class="work-contrib-label work-contrib-label-dark">기여도</div>
         </div>
       </div>
@@ -868,7 +1008,7 @@ footer {
           <div class="work-subtitle work-subtitle-dark">언론홍보</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num">100%</div>
+          <div class="work-contrib-num work-contrib-num-dark">100%</div>
           <div class="work-contrib-label work-contrib-label-dark">기여도</div>
         </div>
       </div>
@@ -914,7 +1054,7 @@ footer {
           <div class="work-subtitle work-subtitle-dark">Brand Messaging &amp; UX Writing</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num">80%</div>
+          <div class="work-contrib-num work-contrib-num-dark">80%</div>
           <div class="work-contrib-label work-contrib-label-dark">기여도</div>
         </div>
       </div>
@@ -942,7 +1082,7 @@ footer {
           <div class="work-subtitle work-subtitle-dark">2025 SEOUL MONEY SHOW</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num">70%</div>
+          <div class="work-contrib-num work-contrib-num-dark">70%</div>
           <div class="work-contrib-label work-contrib-label-dark">기여도</div>
         </div>
       </div>
@@ -959,7 +1099,7 @@ footer {
 </section>
 
 <!-- ── HANA ── -->
-<section id="hana" class="tile tile-light">
+<section id="hana" class="tile tile-light tab-panel" role="tabpanel" hidden>
   <div class="tile-inner">
     <span class="section-chip">하나대체투자자산운용</span>
     <h2 class="display-lg project-headline">어려운 금융 개념을<br>콘텐츠로 풀다</h2>
@@ -967,16 +1107,20 @@ footer {
 
     <div class="stats-row stats-row-light" style="margin-bottom:48px;">
       <div class="stat-item">
+        <div class="stat-num">6,500명</div>
+        <div class="stat-desc" style="color:var(--ink-muted-80);">유튜브 구독자 확보</div>
+      </div>
+      <div class="stat-item">
         <div class="stat-num">30만</div>
-        <div class="stat-desc" style="color:var(--ink-muted-80);">Brand AD 조회수</div>
+        <div class="stat-desc" style="color:var(--ink-muted-80);">최고 조회수</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2만</div>
+        <div class="stat-desc" style="color:var(--ink-muted-80);">평균 조회수</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">2트랙</div>
         <div class="stat-desc" style="color:var(--ink-muted-80);">정보형 + 예능형</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">직접</div>
-        <div class="stat-desc" style="color:var(--ink-muted-80);">제안·작성 100%</div>
       </div>
     </div>
 
@@ -1117,7 +1261,7 @@ footer {
 </section>
 
 <!-- ── NH농협 ── -->
-<section id="nh" class="tile tile-dark-2">
+<section id="nh" class="tile tile-dark-2 tab-panel" role="tabpanel" hidden>
   <div class="tile-inner">
     <span class="section-chip section-chip-dark">NH농협카드</span>
     <h2 class="display-lg project-headline">더이상 '어르신'카드가<br>아니다</h2>
@@ -1165,7 +1309,7 @@ footer {
           <div class="work-subtitle work-subtitle-dark">Facebook</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num">60%</div>
+          <div class="work-contrib-num work-contrib-num-dark">60%</div>
           <div class="work-contrib-label work-contrib-label-dark">기여도</div>
         </div>
       </div>
@@ -1192,7 +1336,7 @@ footer {
           <div class="work-subtitle work-subtitle-dark">Instagram</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num">60%</div>
+          <div class="work-contrib-num work-contrib-num-dark">60%</div>
           <div class="work-contrib-label work-contrib-label-dark">기여도</div>
         </div>
       </div>
@@ -1213,7 +1357,7 @@ footer {
           <div class="work-subtitle work-subtitle-dark">Blog &amp; Post</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num">60%</div>
+          <div class="work-contrib-num work-contrib-num-dark">60%</div>
           <div class="work-contrib-label work-contrib-label-dark">기여도</div>
         </div>
       </div>
@@ -1233,7 +1377,7 @@ footer {
           <div class="work-subtitle work-subtitle-dark">Kakao Plus</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num">90%</div>
+          <div class="work-contrib-num work-contrib-num-dark">90%</div>
           <div class="work-contrib-label work-contrib-label-dark">기여도</div>
         </div>
       </div>
@@ -1258,7 +1402,7 @@ footer {
           <div class="work-subtitle work-subtitle-dark">SNS 퍼포먼스</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num">80%</div>
+          <div class="work-contrib-num work-contrib-num-dark">80%</div>
           <div class="work-contrib-label work-contrib-label-dark">기여도</div>
         </div>
       </div>
@@ -1279,7 +1423,7 @@ footer {
           <div class="work-subtitle work-subtitle-dark">ATL Marketing — TVC</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num">60%</div>
+          <div class="work-contrib-num work-contrib-num-dark">60%</div>
           <div class="work-contrib-label work-contrib-label-dark">기여도</div>
         </div>
       </div>
@@ -1301,7 +1445,7 @@ footer {
 </section>
 
 <!-- ── KURLY ── -->
-<section id="kurly" class="tile tile-parchment">
+<section id="kurly" class="tile tile-parchment tab-panel" role="tabpanel" hidden>
   <div class="tile-inner">
     <span class="section-chip">Market Kurly</span>
     <h2 class="display-lg project-headline">0에서 시작<br>팬덤을 만들다</h2>
@@ -1433,6 +1577,343 @@ footer {
   </div>
 </section>
 
+</div>
+
+<!-- ══ CHAPTER: AI Side Projects ══ -->
+<div class="chapter" id="ai-projects">
+  <section class="chapter-head tile tile-parchment">
+    <div class="tile-inner">
+      <h2 class="display-md">AI Side Projects</h2>
+      <p class="chapter-desc">마케터의 문제의식에서 출발해 기획·디자인·개발·콘텐츠 제작까지 혼자 완성한 세 가지 프로젝트</p>
+    </div>
+  </section>
+  <div class="tabbar-wrap tile-parchment">
+    <div class="tabbar" role="tablist" aria-label="AI Side Projects">
+      <button class="tab-btn" role="tab" data-tab="addashboard" aria-selected="true">
+        <span class="tab-name">마케팅 대시보드</span><span class="tab-sub">2026 · 웹 대시보드</span>
+      </button>
+      <button class="tab-btn" role="tab" data-tab="cosmetics" aria-selected="false">
+        <span class="tab-name">내화장품찾기</span><span class="tab-sub">2026.08 · 토스 미니앱</span>
+      </button>
+      <button class="tab-btn" role="tab" data-tab="jindo" aria-selected="false">
+        <span class="tab-name">비빔진도</span><span class="tab-sub">2026.10 · 유튜브 쇼츠</span>
+      </button>
+    </div>
+  </div>
+<!-- ── AD DASHBOARD (개인 프로젝트) ── -->
+<section id="addashboard" class="tile tile-dark-3 tab-panel" role="tabpanel">
+  <div class="tile-inner">
+    <span class="section-chip section-chip-dark">PERSONAL PROJECT · BETA</span>
+    <h2 class="display-lg project-headline">여러 채널의 광고 데이터를<br>하나의 대시보드로</h2>
+    <p class="project-subhead-dark">네이버·카카오·메타·구글·유튜브에 흩어진 광고 성과를 한 곳에서 모니터링하고, 이상 신호를 자동 감지하며, 최신 마케팅 트렌드를 정리하고, AI로 금융투자 광고 규정 준수 여부까지 검토하는 올인원 마케팅 운영 도구</p>
+    <p class="project-period-dark">2026 · 개인 프로젝트 · Claude Code로 기획·제작 · 단일 HTML 대시보드 + Google Apps Script 백엔드</p>
+
+    <div class="career-grid" style="margin-bottom:64px;">
+      <div class="career-card">
+        <div class="career-num">01</div>
+        <div class="career-company" style="font-size:17px;">통합 마케팅 데이터</div>
+        <p class="career-desc">채널별 광고비·유입·가입·구매 KPI, 전월 대비 증감, 퍼널 전환 차트를 한눈에 확인</p>
+      </div>
+      <div class="career-card">
+        <div class="career-num">02</div>
+        <div class="career-company" style="font-size:17px;">이벤트 발생 광고</div>
+        <p class="career-desc">구매 급증·퍼널 이탈·유입 급증 조건을 자동 감지해 주의가 필요한 광고를 바로 포착</p>
+      </div>
+      <div class="career-card">
+        <div class="career-num">03</div>
+        <div class="career-company" style="font-size:17px;">트렌드 조사</div>
+        <p class="career-desc">주차·카테고리별로 정리된 마케팅 트렌드·인사이트 아티클을 카드 형태로 아카이빙</p>
+      </div>
+      <div class="career-card">
+        <div class="career-num">04</div>
+        <div class="career-company" style="font-size:17px;">AI 광고 심의 체크</div>
+        <p class="career-desc">자본시장법·금융투자업규정 기반 44개 체크리스트로 광고 소재의 규정 준수 여부를 AI가 자동 검토</p>
+      </div>
+    </div>
+
+    <!-- 기능 살펴보기 (스포트라이트 캐러셀 — 실제 dashboard_demo.html 라이브 임베드) -->
+    <div class="work-section">
+      <div class="work-type work-type-dark" style="margin-bottom:20px;">Spotlight · 기능 살펴보기</div>
+      <div class="spotlight-carousel">
+        <div class="spotlight-viewport">
+          <div class="spotlight-track" id="spotlightTrack">
+
+            <div class="spotlight-slide">
+              <div class="spotlight-num"><span class="circle">1</span>TAB 01</div>
+              <div class="spotlight">
+                <div class="spotlight-text">
+                  <h3>📊 통합 마케팅 데이터</h3>
+                  <div class="spotlight-badges">
+                    <span class="status-badge status-badge-ok">채널 통합</span>
+                    <span class="status-badge status-badge-check">전월 대비 증감</span>
+                    <span class="status-badge status-badge-ok">퍼널 시각화</span>
+                  </div>
+                  <p>네이버·카카오·메타·구글·유튜브 5개 채널에 흩어진 광고비·유입·가입·구매 데이터를 구글 스프레드시트에서 API로 불러와 하나의 화면에서 비교합니다. 월별/채널별 필터링과 전월 대비 증감률 자동 계산, 유입→가입→구매 퍼널 차트를 제공해 광고 성과를 한눈에 파악할 수 있습니다.</p>
+                </div>
+                <div class="spotlight-visual">
+                  <div class="spotlight-frame-wrap">
+                    <iframe src="dashboard_demo.html?tab=tab1" title="통합 마케팅 데이터 탭 미리보기" loading="lazy"></iframe>
+                  </div>
+                  <div class="spotlight-frame-note">실제 dashboard_demo.html을 샘플 데이터로 축소 표시한 화면입니다</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="spotlight-slide">
+              <div class="spotlight-num"><span class="circle">2</span>TAB 02</div>
+              <div class="spotlight">
+                <div class="spotlight-text">
+                  <h3>🔔 이벤트 발생 광고</h3>
+                  <div class="spotlight-badges">
+                    <span class="status-badge status-badge-bad">퍼널 이탈 감지</span>
+                    <span class="status-badge status-badge-ok">구매 급증 감지</span>
+                    <span class="status-badge status-badge-check">유입 급증 감지</span>
+                  </div>
+                  <p>사람이 매일 들여다보지 않아도 놓치지 않도록 규칙 기반으로 이상 신호를 자동 포착합니다. 설정한 액션 조건값에 해당하는 광고를 자동으로 추려 리스트로 보여줍니다.</p>
+                </div>
+                <div class="spotlight-visual">
+                  <div class="spotlight-frame-wrap">
+                    <iframe src="dashboard_demo.html?tab=tab2" title="이벤트 발생 광고 탭 미리보기" loading="lazy"></iframe>
+                  </div>
+                  <div class="spotlight-frame-note">실제 dashboard_demo.html을 샘플 데이터로 축소 표시한 화면입니다</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="spotlight-slide">
+              <div class="spotlight-num"><span class="circle">3</span>TAB 03</div>
+              <div class="spotlight">
+                <div class="spotlight-text">
+                  <h3>📈 트렌드 조사</h3>
+                  <div class="spotlight-badges">
+                    <span class="status-badge status-badge-ok">주차별 정리</span>
+                    <span class="status-badge status-badge-ok">카테고리 필터</span>
+                    <span class="status-badge status-badge-check">출처 병기</span>
+                  </div>
+                  <p>매주 찾아봐야 하는 마케팅 트렌드·인사이트 아티클을 주차·카테고리별로 정리해 카드 형태로 아카이빙합니다. 출처와 발행일을 함께 표기해 신뢰도를 확인할 수 있고, 필터로 원하는 주제만 빠르게 훑어볼 수 있습니다.</p>
+                </div>
+                <div class="spotlight-visual">
+                  <div class="spotlight-frame-wrap">
+                    <iframe src="dashboard_demo.html?tab=tab3" title="트렌드 조사 탭 미리보기" loading="lazy"></iframe>
+                  </div>
+                  <div class="spotlight-frame-note">실제 dashboard_demo.html을 샘플 데이터로 축소 표시한 화면입니다</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="spotlight-slide">
+              <div class="spotlight-num"><span class="circle">4</span>TAB 04</div>
+              <div class="spotlight">
+                <div class="spotlight-text">
+                  <h3>🛡️ AI 광고 심의 체크</h3>
+                  <div class="spotlight-badges">
+                    <span class="status-badge status-badge-bad">위반 탐지</span>
+                    <span class="status-badge status-badge-check">확인필요 탐지</span>
+                    <span class="status-badge status-badge-ok">규정 준수 확인</span>
+                  </div>
+                  <p>「자본시장법」 제57조, 「금융투자업규정」, 「금융투자회사의 영업 및 업무에 관한 규정」을 바탕으로 심의 체크리스트를 직접 구성했습니다. 광고 문구와 이미지를 업로드하면 Claude(Anthropic API)가 항목별로 준수·위반·확인필요를 판정하고, 문제가 되는 부분을 원문 텍스트에 밑줄로, 이미지에는 위치 오버레이로 표시해줍니다.</p>
+                </div>
+                <div class="spotlight-visual">
+                  <div class="spotlight-frame-wrap">
+                    <iframe src="dashboard_demo.html?tab=tab4" title="광고 심의 체크 탭 미리보기" loading="lazy"></iframe>
+                  </div>
+                  <div class="spotlight-frame-note">실제 dashboard_demo.html — 테스트 광고 소재로 심의를 미리 실행한 결과 화면입니다</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="spotlight-controls">
+          <button class="spotlight-arrow" onclick="spotlightMove(-1)" aria-label="이전 탭">←</button>
+          <div class="spotlight-dots" id="spotlightDots">
+            <button class="dot active" onclick="spotlightGo(0)" aria-label="탭1"></button>
+            <button class="dot" onclick="spotlightGo(1)" aria-label="탭2"></button>
+            <button class="dot" onclick="spotlightGo(2)" aria-label="탭3"></button>
+            <button class="dot" onclick="spotlightGo(3)" aria-label="탭4"></button>
+          </div>
+          <button class="spotlight-arrow" onclick="spotlightMove(1)" aria-label="다음 탭">→</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="work-section">
+      <div class="work-type work-type-dark" style="margin-bottom:16px;">Tech Stack</div>
+      <div class="work-tags">
+        <span class="work-tag-dark">HTML · CSS · Vanilla JS</span>
+        <span class="work-tag-dark">Chart.js</span>
+        <span class="work-tag-dark">Google Apps Script</span>
+        <span class="work-tag-dark">Google Sheets</span>
+        <span class="work-tag-dark">Anthropic Claude API (Vision + Text)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── COSMETICS (개인 프로젝트 · 토스 미니앱) ── -->
+<section id="cosmetics" class="tile tile-light tab-panel" role="tabpanel" hidden>
+  <div class="tile-inner">
+    <span class="section-chip">SIDE PROJECT · LIVE</span>
+    <h2 class="display-lg project-headline">써본 화장품 점수로<br>새 화장품 궁합을 예측하다</h2>
+    <p class="project-period" style="color: var(--ink-muted-48);">2026.08 · 개인 프로젝트 · 기획·디자인·개발(바이브코딩) · 토스 미니앱 출시</p>
+
+    <div class="sie-grid">
+      <div class="sie-card">
+        <div class="sie-num">01 · SITUATION</div>
+        <div class="sie-title">성분표만 보고는 판단이 어렵다</div>
+        <div class="sie-body">화장품을 새로 살 때마다 복잡한 성분표를 봐도 내 피부에 맞을지 판단하기 어려웠고, 예전에 써봤던 제품들과 비교할 방법도 없었습니다.</div>
+      </div>
+      <div class="sie-card">
+        <div class="sie-num">02 · INSIGHT</div>
+        <div class="sie-title">써본 화장품 기록이 곧 예측의 근거</div>
+        <div class="sie-body">내가 써본 화장품에 매긴 점수와 성분을 기록해두면, 겹치는 성분을 기준으로 새로 살 화장품과의 궁합을 예측할 수 있다고 판단했습니다.</div>
+      </div>
+      <div class="sie-card">
+        <div class="sie-num">03 · EXECUTION</div>
+        <div class="sie-title">기획부터 개발까지 바이브코딩으로 완성</div>
+        <div class="sie-body">기획·디자인·개발 전 과정을 바이브코딩으로 직접 진행해 토스 미니앱 '내화장품찾기'를 출시. 써본 화장품의 점수·성분 기록, 신제품 성분 비교, 반응 주의 성분 자동 감지 기능을 구현했습니다.</div>
+      </div>
+    </div>
+
+    <!-- 화면 살펴보기 -->
+    <div class="work-section">
+      <div class="work-header" style="justify-content:flex-start; gap:40px; flex-wrap:wrap;">
+        <div class="work-meta">
+          <div class="work-type">Toss 미니앱 · 화면 살펴보기</div>
+          <div class="work-title">내화장품찾기</div>
+          <div class="work-subtitle">화장품 성분 기록 &amp; 궁합 예측</div>
+        </div>
+        <div class="work-contrib">
+          <img src="images/cosmetics-toss-listing.jpg" alt="토스 미니앱 목록에 노출된 내화장품찾기" class="gallery-img" style="width:260px; margin-left:auto;">
+        </div>
+      </div>
+      <p class="work-body">써본 화장품을 등록해 나에게 맞았던 점수를 기록하고, 새로 살 화장품의 성분을 입력하면 예상 궁합 점수와 함께 반응 주의가 필요한 성분·긍정적인 성분을 알려줍니다.</p>
+      <div class="work-tags" style="margin-bottom:16px;">
+        <span class="work-tag">화장품 등록 &amp; 점수 기록</span>
+        <span class="work-tag">성분 자동 비교</span>
+        <span class="work-tag">반응 주의 성분 감지</span>
+      </div>
+      <div class="gallery-grid gallery-4">
+        <img src="images/cosmetics-02-list.jpg" alt="내 화장품 기록 목록 및 점수" class="gallery-img">
+        <img src="images/cosmetics-03-register.jpg" alt="새 화장품 등록 화면" class="gallery-img">
+        <img src="images/cosmetics-04-compare.jpg" alt="성분 비교하기 입력 화면" class="gallery-img">
+        <img src="images/cosmetics-05-result.jpg" alt="성분 비교 결과 및 반응 주의 안내" class="gallery-img">
+      </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="work-section">
+      <div class="work-type" style="margin-bottom:16px;">Tech Stack</div>
+      <div class="work-tags">
+        <span class="work-tag">기획</span>
+        <span class="work-tag">UI/UX 디자인</span>
+        <span class="work-tag">바이브코딩 개발</span>
+        <span class="work-tag">토스 미니앱</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── BIBIM JINDO (개인 프로젝트 · 유튜브 쇼츠) ── -->
+<section id="jindo" class="tile tile-dark tab-panel" role="tabpanel" hidden>
+  <div class="tile-inner">
+    <span class="section-chip section-chip-dark">SIDE PROJECT · YOUTUBE SHORTS</span>
+    <h2 class="display-lg project-headline">진돗개를 향한 편견을<br>60초로 바로잡다</h2>
+    <p class="project-period-dark">2026.10 – 현재 · 개인 프로젝트 · 1인 기획·AI 영상 제작·편집·채널 운영</p>
+
+    <div class="stats-row" style="margin-bottom:48px;">
+      <div class="stat-item">
+        <div class="stat-num">1인</div>
+        <div class="stat-desc">기획·제작·편집·운영<br>전 과정 단독 진행</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">AI</div>
+        <div class="stat-desc">AI 영상 생성 +<br>CapCut 편집</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5단계</div>
+        <div class="stat-desc">기원→역사→습성→<br>스토리→K-진돗개 시리즈</div>
+      </div>
+    </div>
+
+    <div class="sie-grid">
+      <div class="sie-card-dark">
+        <div class="sie-num sie-num-dark">01 · SITUATION</div>
+        <div class="sie-title sie-title-dark">가장 흔한 우리 개, 가장 외면받는 우리 개</div>
+        <div class="sie-body sie-body-dark">진돗개와 진도믹스는 우리 주변에서 가장 흔히 만나는 개지만, '사납다', '한 주인만 따른다', '실내에서 키우기 어렵다'는 편견 때문에 국내 입양에서 외면받고 있습니다. 보호소의 진도믹스들이 오히려 해외에서 새 가족을 찾는 일이 많을 만큼, 정작 우리나라에서 차별받고 있습니다.</div>
+      </div>
+      <div class="sie-card-dark">
+        <div class="sie-num sie-num-dark">02 · INSIGHT</div>
+        <div class="sie-title sie-title-dark">편견은 '잘 모르는 데서' 시작된다</div>
+        <div class="sie-body sie-body-dark">진돗개의 기원·역사·습성을 제대로 알면 인식이 바뀌고, 바뀐 인식이 입양으로 이어질 수 있다고 판단했습니다. 무거운 캠페인 대신, 누구나 끝까지 보는 짧고 가벼운 질문형 쇼츠로 풀기로 했습니다.</div>
+      </div>
+      <div class="sie-card-dark">
+        <div class="sie-num sie-num-dark">03 · EXECUTION</div>
+        <div class="sie-title sie-title-dark">AI 영상 + 질문형 훅의 시리즈 운영</div>
+        <div class="sie-body sie-body-dark">'진돗개는 외국개다?'처럼 통념을 뒤집는 질문으로 시작해 기원 → 역사 → 습성 → 감동 스토리 → K-진돗개 순으로 시리즈를 구성했습니다. AI로 영상을 만들고 CapCut으로 편집해 이틀에 한 편씩 업로드하며 채널을 혼자 운영하고 있습니다.</div>
+      </div>
+    </div>
+
+    <!-- 쇼츠 살펴보기 -->
+    <div class="work-section">
+      <div class="work-header work-header-dark">
+        <div class="work-meta">
+          <div class="work-type work-type-dark">YouTube Shorts · 우리 진도 바로알기</div>
+          <div class="work-title work-title-dark">비빔진도 @bibim_jindo</div>
+        </div>
+      </div>
+      <p class="work-body work-body-dark">진돗개에 대한 오해를 하나씩 짚는 정보형 쇼츠 시리즈. 썸네일을 누르면 영상으로 이동합니다.</p>
+      <div class="work-links">
+        <a href="https://www.youtube.com/@bibim_jindo/shorts" target="_blank" class="work-link work-link-dark">채널 바로가기 ›</a>
+      </div>
+      <div class="shorts-grid">
+        <a href="https://www.youtube.com/shorts/SxupTynledc" target="_blank" class="shorts-card">
+          <img src="https://i.ytimg.com/vi/SxupTynledc/hqdefault.jpg" alt="진돗개는 외국개다?" loading="lazy">
+          <span class="shorts-cap">진돗개는 외국개다?</span>
+        </a>
+        <a href="https://www.youtube.com/shorts/h9HKlFuDYCQ" target="_blank" class="shorts-card">
+          <img src="https://i.ytimg.com/vi/h9HKlFuDYCQ/hqdefault.jpg" alt="진도에선 개를 묶지 않는다고요?" loading="lazy">
+          <span class="shorts-cap">진도에선 개를 묶지 않는다고요?</span>
+        </a>
+        <a href="https://www.youtube.com/shorts/V_RtbwWFxw0" target="_blank" class="shorts-card">
+          <img src="https://i.ytimg.com/vi/V_RtbwWFxw0/hqdefault.jpg" alt="진돗개를 처음 지킨건 일본?" loading="lazy">
+          <span class="shorts-cap">진돗개를 처음 지킨건 일본?</span>
+        </a>
+        <a href="https://www.youtube.com/shorts/TPaBlqLnz6k" target="_blank" class="shorts-card">
+          <img src="https://i.ytimg.com/vi/TPaBlqLnz6k/hqdefault.jpg" alt="우리 토종견들이 사라진 이유" loading="lazy">
+          <span class="shorts-cap">우리 토종견들이 사라진 이유</span>
+        </a>
+        <a href="https://www.youtube.com/shorts/eEqcPQhMOos" target="_blank" class="shorts-card">
+          <img src="https://i.ytimg.com/vi/eEqcPQhMOos/hqdefault.jpg" alt="300km를 걸어 집으로 돌아온 백구" loading="lazy">
+          <span class="shorts-cap">300km를 걸어 집으로 돌아온 백구</span>
+        </a>
+        <a href="https://www.youtube.com/shorts/5_140kGNj58" target="_blank" class="shorts-card">
+          <img src="https://i.ytimg.com/vi/5_140kGNj58/hqdefault.jpg" alt="미국 경찰견 시험보러 왔다 멍" loading="lazy">
+          <span class="shorts-cap">미국 경찰견 시험보러 왔다 멍</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Tools -->
+    <div class="work-section">
+      <div class="work-type work-type-dark" style="margin-bottom:16px;">Tools &amp; Skills</div>
+      <div class="work-tags">
+        <span class="work-tag-dark">콘텐츠 기획</span>
+        <span class="work-tag-dark">AI 영상 생성</span>
+        <span class="work-tag-dark">CapCut 편집</span>
+        <span class="work-tag-dark">유튜브 쇼츠 채널 운영</span>
+        <span class="work-tag-dark">사회적 인식 개선 캠페인</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</div>
+
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-inner">
@@ -1457,20 +1938,59 @@ function closeMenu() {
   document.getElementById('mobileMenu').classList.remove('open');
 }
 
-// Smooth active nav highlight
-const sections = document.querySelectorAll('section[id]');
+// Active nav highlight (chapters)
 const navLinks = document.querySelectorAll('.nav-links a');
+const navTargets = [...navLinks].map(a => document.querySelector(a.getAttribute('href')));
 window.addEventListener('scroll', () => {
   let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 80) current = s.getAttribute('id');
-  });
+  navTargets.forEach(t => { if (t && window.scrollY >= t.offsetTop - 80) current = t.id; });
   navLinks.forEach(a => {
-    a.style.color = a.getAttribute('href') === '#' + current
-      ? 'rgba(255,255,255,1)'
-      : 'rgba(255,255,255,0.72)';
+    a.style.color = a.getAttribute('href') === '#' + current ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.72)';
+  });
+  document.querySelectorAll('.tabbar-wrap').forEach(w => {
+    w.classList.toggle('is-stuck', Math.round(w.getBoundingClientRect().top) <= 44 && w.parentElement.getBoundingClientRect().bottom > 120);
   });
 });
+
+// Tabs
+function activateTab(id, scroll) {
+  const panel = document.getElementById(id);
+  if (!panel || !panel.classList.contains('tab-panel')) return false;
+  const chapter = panel.closest('.chapter');
+  chapter.querySelectorAll('.tab-panel').forEach(p => { p.hidden = p !== panel; });
+  chapter.querySelectorAll('.tab-btn').forEach(b => {
+    const on = b.dataset.tab === id;
+    b.setAttribute('aria-selected', on ? 'true' : 'false');
+    if (on) b.scrollIntoView({ block: 'nearest', inline: 'center' });
+  });
+  if (scroll) {
+    const bar = chapter.querySelector('.tabbar-wrap');
+    const head = chapter.querySelector('.chapter-head');
+    const y = head.offsetTop + head.offsetHeight - 44;
+    if (window.scrollY > y + 10 || scroll === 'force') window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+  return true;
+}
+document.querySelectorAll('.tab-btn').forEach(b => b.addEventListener('click', () => activateTab(b.dataset.tab, true)));
+function goTo(id) {
+  if (activateTab(id, false)) {
+    const chapter = document.getElementById(id).closest('.chapter');
+    window.scrollTo({ top: chapter.offsetTop - 44, behavior: 'smooth' });
+  } else {
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.offsetTop - 44, behavior: 'smooth' });
+  }
+}
+document.querySelectorAll('.career-card[data-goto]').forEach(c => {
+  c.addEventListener('click', () => goTo(c.dataset.goto));
+  c.addEventListener('keydown', e => { if (e.key === 'Enter') goTo(c.dataset.goto); });
+});
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  const id = a.getAttribute('href').slice(1);
+  const el = document.getElementById(id);
+  if (el && el.classList.contains('tab-panel')) a.addEventListener('click', e => { e.preventDefault(); goTo(id); });
+});
+if (location.hash) { const h = location.hash.slice(1); if (document.getElementById(h)?.classList.contains('tab-panel')) setTimeout(() => goTo(h), 50); }
 
 // Fade-in on scroll
 const observer = new IntersectionObserver((entries) => {
@@ -1488,6 +2008,30 @@ document.querySelectorAll('.work-section, .sie-card, .sie-card-dark, .career-car
   el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
   observer.observe(el);
 });
+
+</script>
+
+<!-- Ad Dashboard 기능 살펴보기 캐러셀 -->
+<script>
+(function(){
+  var spotlightIndex = 0;
+  var spotlightTotal = 4;
+  function update(){
+    var track = document.getElementById('spotlightTrack');
+    if (!track) return;
+    track.style.transform = 'translateX(-' + (spotlightIndex * 100) + '%)';
+    var dots = document.querySelectorAll('#spotlightDots .dot');
+    dots.forEach(function(d, i){ d.classList.toggle('active', i === spotlightIndex); });
+  }
+  window.spotlightMove = function(delta){
+    spotlightIndex = (spotlightIndex + delta + spotlightTotal) % spotlightTotal;
+    update();
+  };
+  window.spotlightGo = function(i){
+    spotlightIndex = i;
+    update();
+  };
+})();
 </script>
 </body>
 </html>
