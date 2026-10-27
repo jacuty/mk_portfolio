@@ -764,6 +764,62 @@ footer {
   .stat-desc { font-size: 12px; }
 }
 
+
+/* ── HERO PROOF (v2) ── */
+.hero-proof {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 880px; margin: 8px auto 0;
+  border-top: 1px solid rgba(255,255,255,0.16);
+  border-bottom: 1px solid rgba(255,255,255,0.16);
+  text-align: left;
+}
+.proof { padding: 28px 28px 30px; }
+.proof + .proof { border-left: 1px solid rgba(255,255,255,0.16); }
+.proof-num {
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 700; line-height: 1;
+  letter-spacing: -2px; font-variant-numeric: tabular-nums;
+  color: var(--brand-yellow);
+  margin-bottom: 18px;
+}
+.proof-num span { font-size: 24px; font-weight: 600; letter-spacing: -0.5px; margin-left: 3px; }
+.proof-what { font-size: 16px; font-weight: 600; color: var(--on-dark); letter-spacing: -0.3px; }
+.proof-where { font-size: 13px; color: rgba(255,255,255,0.56); margin-top: 4px; letter-spacing: -0.2px; }
+@media (max-width: 640px) {
+  .hero-proof { grid-template-columns: 1fr; }
+  .proof { display: grid; grid-template-columns: auto 1fr; column-gap: 20px; align-items: center; padding: 20px 4px; }
+  .proof + .proof { border-left: 0; border-top: 1px solid rgba(255,255,255,0.16); }
+  .proof-num { grid-row: span 2; font-size: 40px; margin-bottom: 0; min-width: 132px; }
+  .proof-num span { font-size: 18px; }
+}
+
+/* ── TABS (v2: underline index) ── */
+.chapter-head { padding-bottom: 36px; }
+.tabbar-wrap { position: sticky; top: 44px; z-index: 50; padding: 0 22px; border-bottom: 1px solid var(--hairline); box-shadow: none; }
+.tabbar-wrap.is-stuck { padding-top: 0; padding-bottom: 0; background: rgba(255,255,255,0.92); -webkit-backdrop-filter: saturate(180%) blur(16px); backdrop-filter: saturate(180%) blur(16px); box-shadow: 0 8px 24px rgba(28,26,18,0.06); }
+.tabbar { gap: 4px; align-items: stretch; }
+.tab-btn {
+  border: 0; border-radius: 0; background: transparent;
+  padding: 16px 26px 14px; gap: 3px;
+  border-bottom: 3px solid transparent; margin-bottom: -1px;
+  transition: color .2s, border-color .2s;
+}
+.tab-btn:hover { border-color: var(--hairline); background: transparent; }
+.tab-btn .tab-name { font-size: 17px; font-weight: 600; color: var(--ink-muted-48); transition: color .2s; }
+.tab-btn .tab-sub { font-size: 12px; color: var(--ink-muted-48); font-variant-numeric: tabular-nums; }
+.tab-btn:hover .tab-name { color: var(--ink); }
+.tab-btn[aria-selected="true"] { background: transparent; border-color: var(--brand-yellow-deep); }
+.tab-btn[aria-selected="true"] .tab-name { color: var(--ink); }
+.tab-btn[aria-selected="true"] .tab-sub { color: var(--ink-muted-80); }
+.tab-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: -4px; border-radius: 6px; }
+@media (max-width: 640px) {
+  .tabbar-wrap { padding: 0 8px; }
+  .tab-btn { padding: 14px 14px 12px; }
+  .tab-btn .tab-name { font-size: 15px; }
+  .tab-btn .tab-sub { font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) { .tab-panel { animation: none; } }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 834px) {
   .nav-links { display: none; }
@@ -841,18 +897,21 @@ footer {
       </a>
     </div>
 
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">8+</div>
-        <div class="hero-stat-label">Years Exp.</div>
+    <div class="hero-proof">
+      <div class="proof">
+        <div class="proof-num">8<span>년+</span></div>
+        <div class="proof-what">브랜드·디지털 마케팅</div>
+        <div class="proof-where">금융, 이커머스, D2C</div>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">30만</div>
-        <div class="hero-stat-label">Brand AD Views</div>
+      <div class="proof">
+        <div class="proof-num">30<span>만</span></div>
+        <div class="proof-what">브랜드 광고 조회수</div>
+        <div class="proof-where">하나대체투자자산운용</div>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">3700%</div>
-        <div class="hero-stat-label">Facebook Growth</div>
+      <div class="proof">
+        <div class="proof-num">3,700<span>%</span></div>
+        <div class="proof-what">페이스북 팬 성장</div>
+        <div class="proof-where">NH농협카드, 7,230명 → 26만 명</div>
       </div>
     </div>
   </div>
