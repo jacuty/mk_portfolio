@@ -836,6 +836,28 @@ footer {
 .chapter-dark .tab-btn[aria-selected="true"] .tab-sub { color: rgba(255,255,255,0.72); }
 .chapter-dark .tab-btn:focus-visible { outline-color: var(--brand-yellow); }
 
+
+/* ── TAB PANELS: one light family, tone per tab ── */
+.tone-a { background: #FFFFFF; color: var(--ink); }
+.tone-b { background: #FAF8F1; color: var(--ink); }
+.tone-c { background: #F4F1E6; color: var(--ink); }
+.tab-panel .sie-card { background: rgba(255,255,255,0.72); }
+.tone-a .sie-card { background: var(--canvas-parchment); }
+.tab-panel .project-headline { color: var(--ink); }
+.tab-panel .stat-num { color: var(--primary); }
+.tab-panel .spotlight-num { color: var(--primary); }
+.tab-panel .spotlight-text h3 { color: var(--ink); }
+.tab-panel .spotlight-text p, .tab-panel .spotlight-frame-note { color: var(--ink-muted-48); }
+.tab-panel .spotlight-frame-wrap { box-shadow: rgba(28,26,18,0.14) 0 16px 40px 0; }
+.tab-panel .spotlight-arrow { border-color: var(--hairline); background: var(--canvas); color: var(--ink); }
+.tab-panel .spotlight-arrow:hover { background: var(--brand-yellow); border-color: var(--brand-yellow); color: var(--ink); }
+.tab-panel .spotlight-dots .dot { background: rgba(28,26,18,0.18); }
+.tab-panel .spotlight-dots .dot.active { background: var(--brand-yellow-deep); }
+.tab-panel .status-badge-bad { background: rgba(239,68,68,0.12); color: #b42318; }
+.tab-panel .status-badge-check { background: rgba(245,158,11,0.16); color: #93370d; }
+.tab-panel .status-badge-ok { background: rgba(16,185,129,0.14); color: #05603a; }
+.tab-panel .shorts-card { box-shadow: rgba(28,26,18,0.16) 3px 5px 24px 0; }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 834px) {
   .nav-links { display: none; }
@@ -1020,48 +1042,48 @@ footer {
     </div>
   </div>
 <!-- ── MONEYMOVE ── -->
-<section id="moneymove" class="tile tile-dark tab-panel" role="tabpanel">
+<section id="moneymove" class="tile tone-a tab-panel" role="tabpanel">
   <div class="tile-inner">
-    <span class="section-chip section-chip-dark">MONEYMOVE</span>
+    <span class="section-chip">MONEYMOVE</span>
     <h2 class="display-lg project-headline">온투업 플랫폼의<br>브랜드 신뢰 구축 전략</h2>
-    <p class="project-period-dark">2023 – 2025</p>
+    <p class="project-period">2023 – 2025</p>
 
     <div class="sie-grid">
-      <div class="sie-card-dark">
-        <div class="sie-num sie-num-dark">01 · SITUATION</div>
-        <div class="sie-title sie-title-dark">온투업 플랫폼의 신뢰도 문제</div>
-        <div class="sie-body sie-body-dark">머니무브는 온투업(P2P) 플랫폼으로, 일반 투자자에게 '고위험·복잡한 상품'이라는 인식이 강했습니다. 브랜드에 대한 신뢰가 낮으면 가입 전환으로 이어지지 않는 구조였습니다.</div>
+      <div class="sie-card">
+        <div class="sie-num">01 · SITUATION</div>
+        <div class="sie-title">온투업 플랫폼의 신뢰도 문제</div>
+        <div class="sie-body">머니무브는 온투업(P2P) 플랫폼으로, 일반 투자자에게 '고위험·복잡한 상품'이라는 인식이 강했습니다. 브랜드에 대한 신뢰가 낮으면 가입 전환으로 이어지지 않는 구조였습니다.</div>
       </div>
-      <div class="sie-card-dark">
-        <div class="sie-num sie-num-dark">02 · INSIGHT</div>
-        <div class="sie-title sie-title-dark">불안을 없애야 행동이 바뀐다</div>
-        <div class="sie-body sie-body-dark">투자 플랫폼 유저의 핵심 심리는 '손실 공포'입니다. 화려한 수익률 강조보다, 리스크 관리 능력과 운용사의 전문성을 먼저 신뢰시키는 것이 전환율에 직결된다고 판단했습니다.</div>
+      <div class="sie-card">
+        <div class="sie-num">02 · INSIGHT</div>
+        <div class="sie-title">불안을 없애야 행동이 바뀐다</div>
+        <div class="sie-body">투자 플랫폼 유저의 핵심 심리는 '손실 공포'입니다. 화려한 수익률 강조보다, 리스크 관리 능력과 운용사의 전문성을 먼저 신뢰시키는 것이 전환율에 직결된다고 판단했습니다.</div>
       </div>
-      <div class="sie-card-dark">
-        <div class="sie-num sie-num-dark">03 · EXECUTION</div>
-        <div class="sie-title sie-title-dark">신뢰 중심 브랜드 보이스 전방위 구축</div>
-        <div class="sie-body sie-body-dark">홈페이지 키 메시지 '자산을 늘리는 가장 스마트한 방법'으로 브랜드 포지셔닝. AI 리스크 관리·저축은행 협약 등 핵심 이슈를 PR 기사로 기획해 언론 신뢰도 확보. 브랜드 영상은 '저위험 중수익의 비밀' 등 타겟 공감 메시지로 제작.</div>
+      <div class="sie-card">
+        <div class="sie-num">03 · EXECUTION</div>
+        <div class="sie-title">신뢰 중심 브랜드 보이스 전방위 구축</div>
+        <div class="sie-body">홈페이지 키 메시지 '자산을 늘리는 가장 스마트한 방법'으로 브랜드 포지셔닝. AI 리스크 관리·저축은행 협약 등 핵심 이슈를 PR 기사로 기획해 언론 신뢰도 확보. 브랜드 영상은 '저위험 중수익의 비밀' 등 타겟 공감 메시지로 제작.</div>
       </div>
     </div>
 
     <!-- Brand AD -->
     <div class="work-section">
-      <div class="work-header work-header-dark">
+      <div class="work-header">
         <div class="work-meta">
-          <div class="work-type work-type-dark">Brand AD · 투자 홍보 영상</div>
-          <div class="work-title work-title-dark">Brand AD</div>
-          <div class="work-subtitle work-subtitle-dark">투자 홍보 영상</div>
+          <div class="work-type">Brand AD · 투자 홍보 영상</div>
+          <div class="work-title">Brand AD</div>
+          <div class="work-subtitle">투자 홍보 영상</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num work-contrib-num-dark">80%</div>
-          <div class="work-contrib-label work-contrib-label-dark">기여도</div>
+          <div class="work-contrib-num">80%</div>
+          <div class="work-contrib-label">기여도</div>
         </div>
       </div>
-      <p class="work-body work-body-dark">온투업(P2P투자) 개념 및 올바른 투자 방법을 영상으로 전달. '저위험 중수익의 비밀' 등 타겟 공감 메시지 설계</p>
+      <p class="work-body">온투업(P2P투자) 개념 및 올바른 투자 방법을 영상으로 전달. '저위험 중수익의 비밀' 등 타겟 공감 메시지 설계</p>
       <div class="work-tags" style="margin-bottom:16px;">
-        <span class="work-tag-dark">시나리오</span>
-        <span class="work-tag-dark">콘티</span>
-        <span class="work-tag-dark">업체선정</span>
+        <span class="work-tag">시나리오</span>
+        <span class="work-tag">콘티</span>
+        <span class="work-tag">업체선정</span>
       </div>
       <div class="yt-grid" style="max-width:560px; margin-top:16px;">
         <a href="https://youtu.be/7e7_ZxYqd0Y?si=JKLl_mKNEFkhApr9" target="_blank" class="yt-card">
@@ -1076,45 +1098,45 @@ footer {
 
     <!-- Article & PR -->
     <div class="work-section">
-      <div class="work-header work-header-dark">
+      <div class="work-header">
         <div class="work-meta">
-          <div class="work-type work-type-dark">Article &amp; PR · 언론홍보</div>
-          <div class="work-title work-title-dark">Article &amp; PR</div>
-          <div class="work-subtitle work-subtitle-dark">언론홍보</div>
+          <div class="work-type">Article &amp; PR · 언론홍보</div>
+          <div class="work-title">Article &amp; PR</div>
+          <div class="work-subtitle">언론홍보</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num work-contrib-num-dark">100%</div>
-          <div class="work-contrib-label work-contrib-label-dark">기여도</div>
+          <div class="work-contrib-num">100%</div>
+          <div class="work-contrib-label">기여도</div>
         </div>
       </div>
-      <p class="work-body work-body-dark">핀테크 매거진 기사 작성 및 게재. AI 기반 리스크 관리 체계, 저축은행·온투업 협약 등 보도자료 기획. 머니무브 주요 이슈 언론홍보 전략 수립 및 다수 기사 게재 성과</p>
+      <p class="work-body">핀테크 매거진 기사 작성 및 게재. AI 기반 리스크 관리 체계, 저축은행·온투업 협약 등 보도자료 기획. 머니무브 주요 이슈 언론홍보 전략 수립 및 다수 기사 게재 성과</p>
       <div class="work-tags" style="margin-bottom:16px;">
-        <span class="work-tag-dark">보도자료 작성</span>
+        <span class="work-tag">보도자료 작성</span>
       </div>
       <img src="https://jacuty.github.io/maketing_portfolio/images/img-018.jpg" alt="핀테크 매거진 기사" class="gallery-img" style="border-radius:12px; margin-bottom:16px;">
-      <ul class="press-list press-list-dark">
-        <li class="press-item press-item-dark">
+      <ul class="press-list">
+        <li class="press-item">
           <a href="https://www.finomy.com/news/articleView.html?idxno=229909" target="_blank">
             <span>현대경제신문 2025.05.28 머니무브, AI 기반 리스크 관리 체계 갖춰</span>
-            <span class="press-arrow press-arrow-dark">→</span>
+            <span class="press-arrow">→</span>
           </a>
         </li>
-        <li class="press-item press-item-dark">
+        <li class="press-item">
           <a href="https://www.newsis.com/view/NISX20250319_0003105228" target="_blank">
             <span>뉴시스 2025.03.19 저축은행·온투업계, 중저신용자 금융공급 확대 협약</span>
-            <span class="press-arrow press-arrow-dark">→</span>
+            <span class="press-arrow">→</span>
           </a>
         </li>
-        <li class="press-item press-item-dark">
+        <li class="press-item">
           <a href="https://m.etoday.co.kr/news/view/2416486" target="_blank">
             <span>이투데이 2024.11.05 온투합, 저축은행 대상 온투업 개인신용대출 연계투자 설명회 성료</span>
-            <span class="press-arrow press-arrow-dark">→</span>
+            <span class="press-arrow">→</span>
           </a>
         </li>
-        <li class="press-item press-item-dark">
+        <li class="press-item">
           <a href="https://www.mk.co.kr/news/economy/11017929#none" target="_blank">
             <span>매일경제 2024.05.17 [2024 서울머니쇼 부스] 새로운 투자 경험의 시작!</span>
-            <span class="press-arrow press-arrow-dark">→</span>
+            <span class="press-arrow">→</span>
           </a>
         </li>
       </ul>
@@ -1122,22 +1144,22 @@ footer {
 
     <!-- Brand Page -->
     <div class="work-section">
-      <div class="work-header work-header-dark">
+      <div class="work-header">
         <div class="work-meta">
-          <div class="work-type work-type-dark">Brand Page · Brand Messaging &amp; UX Writing</div>
-          <div class="work-title work-title-dark">Brand Page</div>
-          <div class="work-subtitle work-subtitle-dark">Brand Messaging &amp; UX Writing</div>
+          <div class="work-type">Brand Page · Brand Messaging &amp; UX Writing</div>
+          <div class="work-title">Brand Page</div>
+          <div class="work-subtitle">Brand Messaging &amp; UX Writing</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num work-contrib-num-dark">80%</div>
-          <div class="work-contrib-label work-contrib-label-dark">기여도</div>
+          <div class="work-contrib-num">80%</div>
+          <div class="work-contrib-label">기여도</div>
         </div>
       </div>
-      <p class="work-body work-body-dark">키메시지 '자산을 늘리는 가장 스마트한 방법 머니무브 투자' 작성. 투자·대출 플랫폼에 맞는 신뢰·성장 중심 브랜드 보이스 확립</p>
+      <p class="work-body">키메시지 '자산을 늘리는 가장 스마트한 방법 머니무브 투자' 작성. 투자·대출 플랫폼에 맞는 신뢰·성장 중심 브랜드 보이스 확립</p>
       <div class="work-tags" style="margin-bottom:16px;">
-        <span class="work-tag-dark">Key message</span>
-        <span class="work-tag-dark">상세 페이지</span>
-        <span class="work-tag-dark">소개 작업</span>
+        <span class="work-tag">Key message</span>
+        <span class="work-tag">상세 페이지</span>
+        <span class="work-tag">소개 작업</span>
       </div>
       <img src="https://jacuty.github.io/maketing_portfolio/images/moneymove-brand-page.jpg" alt="머니무브 브랜드 페이지" class="gallery-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid'">
       <div class="gallery-grid gallery-2" style="display:none">
@@ -1150,18 +1172,18 @@ footer {
 
     <!-- Exhibition -->
     <div class="work-section">
-      <div class="work-header work-header-dark">
+      <div class="work-header">
         <div class="work-meta">
-          <div class="work-type work-type-dark">Exhibition · 2025 Seoul Money Show</div>
-          <div class="work-title work-title-dark">Exhibition</div>
-          <div class="work-subtitle work-subtitle-dark">2025 SEOUL MONEY SHOW</div>
+          <div class="work-type">Exhibition · 2025 Seoul Money Show</div>
+          <div class="work-title">Exhibition</div>
+          <div class="work-subtitle">2025 SEOUL MONEY SHOW</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num work-contrib-num-dark">70%</div>
-          <div class="work-contrib-label work-contrib-label-dark">기여도</div>
+          <div class="work-contrib-num">70%</div>
+          <div class="work-contrib-label">기여도</div>
         </div>
       </div>
-      <p class="work-body work-body-dark">서울머니쇼 행사 기획 및 운영을 통해 신규 리드 확보 및 브랜드 노출 극대화. 오프라인 행사 기반 고객 유입 전략을 통해 회원 전환/상담/앱 유입 성과 창출. 타겟 고객 데이터 확보 및 CRM 연계 기반 구축</p>
+      <p class="work-body">서울머니쇼 행사 기획 및 운영을 통해 신규 리드 확보 및 브랜드 노출 극대화. 오프라인 행사 기반 고객 유입 전략을 통해 회원 전환/상담/앱 유입 성과 창출. 타겟 고객 데이터 확보 및 CRM 연계 기반 구축</p>
       <div class="gallery-grid gallery-1-2">
         <img src="https://jacuty.github.io/maketing_portfolio/images/img-035.jpg" alt="2025 서울머니쇼 메인 부스" class="gallery-img gallery-img-tall" style="grid-row: span 1;">
         <div style="display:flex; flex-direction:column; gap:12px;">
@@ -1174,7 +1196,7 @@ footer {
 </section>
 
 <!-- ── HANA ── -->
-<section id="hana" class="tile tile-light tab-panel" role="tabpanel" hidden>
+<section id="hana" class="tile tone-b tab-panel" role="tabpanel" hidden>
   <div class="tile-inner">
     <span class="section-chip">하나대체투자자산운용</span>
     <h2 class="display-lg project-headline">어려운 금융 개념을<br>콘텐츠로 풀다</h2>
@@ -1183,19 +1205,19 @@ footer {
     <div class="stats-row stats-row-light" style="margin-bottom:48px;">
       <div class="stat-item">
         <div class="stat-num">6,500명</div>
-        <div class="stat-desc" style="color:var(--ink-muted-80);">유튜브 구독자 확보</div>
+        <div class="stat-desc stat-desc-dark" style="color:var(--ink-muted-80);">유튜브 구독자 확보</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">30만</div>
-        <div class="stat-desc" style="color:var(--ink-muted-80);">최고 조회수</div>
+        <div class="stat-desc stat-desc-dark" style="color:var(--ink-muted-80);">최고 조회수</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">2만</div>
-        <div class="stat-desc" style="color:var(--ink-muted-80);">평균 조회수</div>
+        <div class="stat-desc stat-desc-dark" style="color:var(--ink-muted-80);">평균 조회수</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">2트랙</div>
-        <div class="stat-desc" style="color:var(--ink-muted-80);">정보형 + 예능형</div>
+        <div class="stat-desc stat-desc-dark" style="color:var(--ink-muted-80);">정보형 + 예능형</div>
       </div>
     </div>
 
@@ -1336,62 +1358,62 @@ footer {
 </section>
 
 <!-- ── NH농협 ── -->
-<section id="nh" class="tile tile-dark-2 tab-panel" role="tabpanel" hidden>
+<section id="nh" class="tile tone-c tab-panel" role="tabpanel" hidden>
   <div class="tile-inner">
-    <span class="section-chip section-chip-dark">NH농협카드</span>
+    <span class="section-chip">NH농협카드</span>
     <h2 class="display-lg project-headline">더이상 '어르신'카드가<br>아니다</h2>
-    <p class="project-period-dark">2016 – 2018</p>
+    <p class="project-period">2016 – 2018</p>
 
-    <div class="stats-row" style="margin-bottom:48px;">
+    <div class="stats-row stats-row-light" style="margin-bottom:48px;">
       <div class="stat-item">
         <div class="stat-num">3700%</div>
-        <div class="stat-desc">Facebook 팬수 증가<br>7,230→260,000</div>
+        <div class="stat-desc stat-desc-dark">Facebook 팬수 증가<br>7,230→260,000</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">2400%</div>
-        <div class="stat-desc">Blog 방문자 증가<br>8천→20만/월</div>
+        <div class="stat-desc stat-desc-dark">Blog 방문자 증가<br>8천→20만/월</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">1위</div>
-        <div class="stat-desc">Instagram 업계<br>좋아요·댓글 수</div>
+        <div class="stat-desc stat-desc-dark">Instagram 업계<br>좋아요·댓글 수</div>
       </div>
     </div>
 
     <div class="sie-grid">
-      <div class="sie-card-dark">
-        <div class="sie-num sie-num-dark">01 · SITUATION</div>
-        <div class="sie-title sie-title-dark">'어르신''혜택이없는' 카드</div>
-        <div class="sie-body sie-body-dark">NH농협카드는 '어르신'들이 이용하는 특출한 '혜택'이 많지 않는 카드 이미지가 강해 2030타겟의 자발적 팔로우와 참여를 이끌어내기 어려운 상황이었습니다.</div>
+      <div class="sie-card">
+        <div class="sie-num">01 · SITUATION</div>
+        <div class="sie-title">'어르신''혜택이없는' 카드</div>
+        <div class="sie-body">NH농협카드는 '어르신'들이 이용하는 특출한 '혜택'이 많지 않는 카드 이미지가 강해 2030타겟의 자발적 팔로우와 참여를 이끌어내기 어려운 상황이었습니다.</div>
       </div>
-      <div class="sie-card-dark">
-        <div class="sie-num sie-num-dark">02 · INSIGHT</div>
-        <div class="sie-title sie-title-dark">재미와 혜택으로 먼저 친구가 되다</div>
-        <div class="sie-body sie-body-dark">금융 브랜드일수록 '카드 혜택'보다 '라이프스타일 공감'이 팬을 만든다는 것을 파악했습니다. 관심사 기반 브랜딩 콘텐츠로 팬층을 확보한 뒤, 퍼포먼스 광고로 발급 전환을 유도하는 이중 전략을 수립했습니다.</div>
+      <div class="sie-card">
+        <div class="sie-num">02 · INSIGHT</div>
+        <div class="sie-title">재미와 혜택으로 먼저 친구가 되다</div>
+        <div class="sie-body">금융 브랜드일수록 '카드 혜택'보다 '라이프스타일 공감'이 팬을 만든다는 것을 파악했습니다. 관심사 기반 브랜딩 콘텐츠로 팬층을 확보한 뒤, 퍼포먼스 광고로 발급 전환을 유도하는 이중 전략을 수립했습니다.</div>
       </div>
-      <div class="sie-card-dark">
-        <div class="sie-num sie-num-dark">03 · EXECUTION</div>
-        <div class="sie-title sie-title-dark">브랜드+퍼포먼스 채널별 역할 분리</div>
-        <div class="sie-body sie-body-dark">Facebook: 일러스트·레시피 등 2030 관심사 브랜딩 + 카드 혜택 DA 광고로 팬수 7,230→260,000 달성. Instagram: 플레이모빌 피규어 스토리 콘텐츠로 업계 반응률 1위(좋아요 976건). Blog: 신상품 원페이퍼 광고·SEO로 방문자 2,400% 증가.</div>
+      <div class="sie-card">
+        <div class="sie-num">03 · EXECUTION</div>
+        <div class="sie-title">브랜드+퍼포먼스 채널별 역할 분리</div>
+        <div class="sie-body">Facebook: 일러스트·레시피 등 2030 관심사 브랜딩 + 카드 혜택 DA 광고로 팬수 7,230→260,000 달성. Instagram: 플레이모빌 피규어 스토리 콘텐츠로 업계 반응률 1위(좋아요 976건). Blog: 신상품 원페이퍼 광고·SEO로 방문자 2,400% 증가.</div>
       </div>
     </div>
 
     <!-- Facebook -->
     <div class="work-section">
-      <div class="work-header work-header-dark">
+      <div class="work-header">
         <div class="work-meta">
-          <div class="work-type work-type-dark">Brand Marketing · Facebook</div>
-          <div class="work-title work-title-dark">Brand Marketing</div>
-          <div class="work-subtitle work-subtitle-dark">Facebook</div>
+          <div class="work-type">Brand Marketing · Facebook</div>
+          <div class="work-title">Brand Marketing</div>
+          <div class="work-subtitle">Facebook</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num work-contrib-num-dark">60%</div>
-          <div class="work-contrib-label work-contrib-label-dark">기여도</div>
+          <div class="work-contrib-num">60%</div>
+          <div class="work-contrib-label">기여도</div>
         </div>
       </div>
-      <p class="work-body work-body-dark">코어타겟(2030) 관심사를 반영한 콘텐츠 제작으로 유입 유도. 유명 푸드스타일리스트 레시피 공유, 참여유도 이벤트를 통한 팬수 확보. 팬수 7,230 → 260,000 (약 3,700% 증가)</p>
+      <p class="work-body">코어타겟(2030) 관심사를 반영한 콘텐츠 제작으로 유입 유도. 유명 푸드스타일리스트 레시피 공유, 참여유도 이벤트를 통한 팬수 확보. 팬수 7,230 → 260,000 (약 3,700% 증가)</p>
       <div class="work-tags" style="margin-bottom:16px;">
-        <span class="work-tag-dark">업체리딩</span>
-        <span class="work-tag-dark">콘텐츠 제작</span>
+        <span class="work-tag">업체리딩</span>
+        <span class="work-tag">콘텐츠 제작</span>
       </div>
       <div class="gallery-grid gallery-3">
         <img src="https://jacuty.github.io/maketing_portfolio/images/img-060.jpg" alt="페이스북 포스트 1" class="gallery-img">
@@ -1404,18 +1426,18 @@ footer {
 
     <!-- Instagram -->
     <div class="work-section">
-      <div class="work-header work-header-dark">
+      <div class="work-header">
         <div class="work-meta">
-          <div class="work-type work-type-dark">Brand Marketing · Instagram</div>
-          <div class="work-title work-title-dark">Brand Marketing</div>
-          <div class="work-subtitle work-subtitle-dark">Instagram</div>
+          <div class="work-type">Brand Marketing · Instagram</div>
+          <div class="work-title">Brand Marketing</div>
+          <div class="work-subtitle">Instagram</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num work-contrib-num-dark">60%</div>
-          <div class="work-contrib-label work-contrib-label-dark">기여도</div>
+          <div class="work-contrib-num">60%</div>
+          <div class="work-contrib-label">기여도</div>
         </div>
       </div>
-      <p class="work-body work-body-dark">플레이모빌 피규어를 이용한 스토리성 콘텐츠 제작 및 카드사용 안내. 2018.10 2만명 팔로워 달성. 업계 콘텐츠당 좋아요·댓글 수 1위</p>
+      <p class="work-body">플레이모빌 피규어를 이용한 스토리성 콘텐츠 제작 및 카드사용 안내. 2018.10 2만명 팔로워 달성. 업계 콘텐츠당 좋아요·댓글 수 1위</p>
       <div class="gallery-grid gallery-3">
         <img src="https://jacuty.github.io/maketing_portfolio/images/img-069.jpg" alt="인스타그램 피드 nhcard.official" class="gallery-img" style="grid-column: span 1;">
         <img src="https://jacuty.github.io/maketing_portfolio/images/img-071.jpg" alt="콘텐츠당 좋아요 수 1위 (976건)" class="gallery-img">
@@ -1425,18 +1447,18 @@ footer {
 
     <!-- Blog & Post -->
     <div class="work-section">
-      <div class="work-header work-header-dark">
+      <div class="work-header">
         <div class="work-meta">
-          <div class="work-type work-type-dark">Brand Marketing · Blog &amp; Post</div>
-          <div class="work-title work-title-dark">Brand Marketing</div>
-          <div class="work-subtitle work-subtitle-dark">Blog &amp; Post</div>
+          <div class="work-type">Brand Marketing · Blog &amp; Post</div>
+          <div class="work-title">Brand Marketing</div>
+          <div class="work-subtitle">Blog &amp; Post</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num work-contrib-num-dark">60%</div>
-          <div class="work-contrib-label work-contrib-label-dark">기여도</div>
+          <div class="work-contrib-num">60%</div>
+          <div class="work-contrib-label">기여도</div>
         </div>
       </div>
-      <p class="work-body work-body-dark">금융전문 정보채널 콘텐츠 제작. 신상품 원페이퍼 광고물 제작. Blog 방문자 8천 → 20만/월 (약 2,400% 증가). Post 주간 방문자 평균 500~1,000건</p>
+      <p class="work-body">금융전문 정보채널 콘텐츠 제작. 신상품 원페이퍼 광고물 제작. Blog 방문자 8천 → 20만/월 (약 2,400% 증가). Post 주간 방문자 평균 500~1,000건</p>
       <div class="gallery-grid gallery-2">
         <img src="https://jacuty.github.io/maketing_portfolio/images/img-072.jpg" alt="블로그 올바른 포인트 Check" class="gallery-img">
         <img src="https://jacuty.github.io/maketing_portfolio/images/img-075.jpg" alt="블로그 5월 포인트카드" class="gallery-img">
@@ -1445,21 +1467,21 @@ footer {
 
     <!-- Kakao Plus -->
     <div class="work-section">
-      <div class="work-header work-header-dark">
+      <div class="work-header">
         <div class="work-meta">
-          <div class="work-type work-type-dark">Performance Marketing · Kakao Plus</div>
-          <div class="work-title work-title-dark">Performance Marketing</div>
-          <div class="work-subtitle work-subtitle-dark">Kakao Plus</div>
+          <div class="work-type">Performance Marketing · Kakao Plus</div>
+          <div class="work-title">Performance Marketing</div>
+          <div class="work-subtitle">Kakao Plus</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num work-contrib-num-dark">90%</div>
-          <div class="work-contrib-label work-contrib-label-dark">기여도</div>
+          <div class="work-contrib-num">90%</div>
+          <div class="work-contrib-label">기여도</div>
         </div>
       </div>
-      <p class="work-body work-body-dark">매월 주요 프로모션 push 메시지 전송으로 카드 사용 유도. 자동응답 버튼 카드 주요혜택 소개로 카드 발급 유도. 친구 1,000 → 82,450명. 농협카드 전용 쇼핑몰 서버 다운</p>
+      <p class="work-body">매월 주요 프로모션 push 메시지 전송으로 카드 사용 유도. 자동응답 버튼 카드 주요혜택 소개로 카드 발급 유도. 친구 1,000 → 82,450명. 농협카드 전용 쇼핑몰 서버 다운</p>
       <div class="work-tags" style="margin-bottom:16px;">
-        <span class="work-tag-dark">카피라이팅</span>
-        <span class="work-tag-dark">혜택 순위선정</span>
+        <span class="work-tag">카피라이팅</span>
+        <span class="work-tag">혜택 순위선정</span>
       </div>
       <div class="gallery-grid gallery-3">
         <img src="https://jacuty.github.io/maketing_portfolio/images/img-082.jpg" alt="카카오 메시지 설맞이 이벤트" class="gallery-img">
@@ -1470,18 +1492,18 @@ footer {
 
     <!-- SNS 퍼포먼스 -->
     <div class="work-section">
-      <div class="work-header work-header-dark">
+      <div class="work-header">
         <div class="work-meta">
-          <div class="work-type work-type-dark">Performance Marketing · SNS</div>
-          <div class="work-title work-title-dark">Performance Marketing</div>
-          <div class="work-subtitle work-subtitle-dark">SNS 퍼포먼스</div>
+          <div class="work-type">Performance Marketing · SNS</div>
+          <div class="work-title">Performance Marketing</div>
+          <div class="work-subtitle">SNS 퍼포먼스</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num work-contrib-num-dark">80%</div>
-          <div class="work-contrib-label work-contrib-label-dark">기여도</div>
+          <div class="work-contrib-num">80%</div>
+          <div class="work-contrib-label">기여도</div>
         </div>
       </div>
-      <p class="work-body work-body-dark">신상품카드, 카드혜택 공유 이벤트를 통한 바이럴 유도. 기존 홈페이지 홍보 한정 프로모션을 SNS 확대, 고객 참여 증가</p>
+      <p class="work-body">신상품카드, 카드혜택 공유 이벤트를 통한 바이럴 유도. 기존 홈페이지 홍보 한정 프로모션을 SNS 확대, 고객 참여 증가</p>
       <div class="gallery-grid gallery-3">
         <img src="https://jacuty.github.io/maketing_portfolio/images/img-080.jpg" alt="SNS 퍼포먼스 FIFA 월드컵" class="gallery-img">
         <img src="https://jacuty.github.io/maketing_portfolio/images/img-065.jpg" alt="카드 올해의 컬러 2018" class="gallery-img">
@@ -1491,21 +1513,21 @@ footer {
 
     <!-- ATL Marketing -->
     <div class="work-section">
-      <div class="work-header work-header-dark">
+      <div class="work-header">
         <div class="work-meta">
-          <div class="work-type work-type-dark">Brand AD · ATL Marketing</div>
-          <div class="work-title work-title-dark">Brand AD</div>
-          <div class="work-subtitle work-subtitle-dark">ATL Marketing — TVC</div>
+          <div class="work-type">Brand AD · ATL Marketing</div>
+          <div class="work-title">Brand AD</div>
+          <div class="work-subtitle">ATL Marketing — TVC</div>
         </div>
         <div class="work-contrib">
-          <div class="work-contrib-num work-contrib-num-dark">60%</div>
-          <div class="work-contrib-label work-contrib-label-dark">기여도</div>
+          <div class="work-contrib-num">60%</div>
+          <div class="work-contrib-label">기여도</div>
         </div>
       </div>
-      <p class="work-body work-body-dark">빅모델 리스트업 · TVC 제작 및 편성 참여 · 빅모델을 이용한 프로모션 및 바이럴 콘텐츠 제작</p>
+      <p class="work-body">빅모델 리스트업 · TVC 제작 및 편성 참여 · 빅모델을 이용한 프로모션 및 바이럴 콘텐츠 제작</p>
       <div class="work-tags" style="margin-bottom:16px;">
-        <span class="work-tag-dark">모델 섭외 및 이미지 디렉션</span>
-        <span class="work-tag-dark">콘텐츠 기획</span>
+        <span class="work-tag">모델 섭외 및 이미지 디렉션</span>
+        <span class="work-tag">콘텐츠 기획</span>
       </div>
       <div class="yt-embed-grid yt-embed-2" style="margin-top:16px;">
         <div class="yt-embed-wrap">
@@ -1520,7 +1542,7 @@ footer {
 </section>
 
 <!-- ── KURLY ── -->
-<section id="kurly" class="tile tile-parchment tab-panel" role="tabpanel" hidden>
+<section id="kurly" class="tile tone-b tab-panel" role="tabpanel" hidden>
   <div class="tile-inner">
     <span class="section-chip">Market Kurly</span>
     <h2 class="display-lg project-headline">0에서 시작<br>팬덤을 만들다</h2>
@@ -1529,15 +1551,15 @@ footer {
     <div class="stats-row stats-row-light" style="margin-bottom:48px;">
       <div class="stat-item">
         <div class="stat-num">0→</div>
-        <div class="stat-desc" style="color:var(--ink-muted-80);">팔로워 0에서<br>팬덤 구축 시작</div>
+        <div class="stat-desc stat-desc-dark" style="color:var(--ink-muted-80);">팔로워 0에서<br>팬덤 구축 시작</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">100원</div>
-        <div class="stat-desc" style="color:var(--ink-muted-80);">업계 최초<br>신규가입 프로모션</div>
+        <div class="stat-desc stat-desc-dark" style="color:var(--ink-muted-80);">업계 최초<br>신규가입 프로모션</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">새벽</div>
-        <div class="stat-desc" style="color:var(--ink-muted-80);">'새벽배송' 개념<br>시장 정착 기여</div>
+        <div class="stat-desc stat-desc-dark" style="color:var(--ink-muted-80);">'새벽배송' 개념<br>시장 정착 기여</div>
       </div>
     </div>
 
@@ -1676,12 +1698,12 @@ footer {
     </div>
   </div>
 <!-- ── AD DASHBOARD (개인 프로젝트) ── -->
-<section id="addashboard" class="tile tile-dark-3 tab-panel" role="tabpanel">
+<section id="addashboard" class="tile tone-a tab-panel" role="tabpanel">
   <div class="tile-inner">
-    <span class="section-chip section-chip-dark">PERSONAL PROJECT · BETA</span>
+    <span class="section-chip">PERSONAL PROJECT · BETA</span>
     <h2 class="display-lg project-headline">여러 채널의 광고 데이터를<br>하나의 대시보드로</h2>
-    <p class="project-subhead-dark">네이버·카카오·메타·구글·유튜브에 흩어진 광고 성과를 한 곳에서 모니터링하고, 이상 신호를 자동 감지하며, 최신 마케팅 트렌드를 정리하고, AI로 금융투자 광고 규정 준수 여부까지 검토하는 올인원 마케팅 운영 도구</p>
-    <p class="project-period-dark">2026 · 개인 프로젝트 · Claude Code로 기획·제작 · 단일 HTML 대시보드 + Google Apps Script 백엔드</p>
+    <p class="project-subhead">네이버·카카오·메타·구글·유튜브에 흩어진 광고 성과를 한 곳에서 모니터링하고, 이상 신호를 자동 감지하며, 최신 마케팅 트렌드를 정리하고, AI로 금융투자 광고 규정 준수 여부까지 검토하는 올인원 마케팅 운영 도구</p>
+    <p class="project-period">2026 · 개인 프로젝트 · Claude Code로 기획·제작 · 단일 HTML 대시보드 + Google Apps Script 백엔드</p>
 
     <div class="career-grid" style="margin-bottom:64px;">
       <div class="career-card">
@@ -1708,7 +1730,7 @@ footer {
 
     <!-- 기능 살펴보기 (스포트라이트 캐러셀 — 실제 dashboard_demo.html 라이브 임베드) -->
     <div class="work-section">
-      <div class="work-type work-type-dark" style="margin-bottom:20px;">Spotlight · 기능 살펴보기</div>
+      <div class="work-type" style="margin-bottom:20px;">Spotlight · 기능 살펴보기</div>
       <div class="spotlight-carousel">
         <div class="spotlight-viewport">
           <div class="spotlight-track" id="spotlightTrack">
@@ -1815,20 +1837,20 @@ footer {
 
     <!-- Tech Stack -->
     <div class="work-section">
-      <div class="work-type work-type-dark" style="margin-bottom:16px;">Tech Stack</div>
+      <div class="work-type" style="margin-bottom:16px;">Tech Stack</div>
       <div class="work-tags">
-        <span class="work-tag-dark">HTML · CSS · Vanilla JS</span>
-        <span class="work-tag-dark">Chart.js</span>
-        <span class="work-tag-dark">Google Apps Script</span>
-        <span class="work-tag-dark">Google Sheets</span>
-        <span class="work-tag-dark">Anthropic Claude API (Vision + Text)</span>
+        <span class="work-tag">HTML · CSS · Vanilla JS</span>
+        <span class="work-tag">Chart.js</span>
+        <span class="work-tag">Google Apps Script</span>
+        <span class="work-tag">Google Sheets</span>
+        <span class="work-tag">Anthropic Claude API (Vision + Text)</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ── COSMETICS (개인 프로젝트 · 토스 미니앱) ── -->
-<section id="cosmetics" class="tile tile-light tab-panel" role="tabpanel" hidden>
+<section id="cosmetics" class="tile tone-b tab-panel" role="tabpanel" hidden>
   <div class="tile-inner">
     <span class="section-chip">SIDE PROJECT · LIVE</span>
     <h2 class="display-lg project-headline">써본 화장품 점수로<br>새 화장품 궁합을 예측하다</h2>
@@ -1893,56 +1915,56 @@ footer {
 </section>
 
 <!-- ── BIBIM JINDO (개인 프로젝트 · 유튜브 쇼츠) ── -->
-<section id="jindo" class="tile tile-dark tab-panel" role="tabpanel" hidden>
+<section id="jindo" class="tile tone-c tab-panel" role="tabpanel" hidden>
   <div class="tile-inner">
-    <span class="section-chip section-chip-dark">SIDE PROJECT · YOUTUBE SHORTS</span>
+    <span class="section-chip">SIDE PROJECT · YOUTUBE SHORTS</span>
     <h2 class="display-lg project-headline">진돗개를 향한 편견을<br>60초로 바로잡다</h2>
-    <p class="project-period-dark">2026.10 – 현재 · 개인 프로젝트 · 1인 기획·AI 영상 제작·편집·채널 운영</p>
+    <p class="project-period">2026.10 – 현재 · 개인 프로젝트 · 1인 기획·AI 영상 제작·편집·채널 운영</p>
 
-    <div class="stats-row" style="margin-bottom:48px;">
+    <div class="stats-row stats-row-light" style="margin-bottom:48px;">
       <div class="stat-item">
         <div class="stat-num">1인</div>
-        <div class="stat-desc">기획·제작·편집·운영<br>전 과정 단독 진행</div>
+        <div class="stat-desc stat-desc-dark">기획·제작·편집·운영<br>전 과정 단독 진행</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">AI</div>
-        <div class="stat-desc">AI 영상 생성 +<br>CapCut 편집</div>
+        <div class="stat-desc stat-desc-dark">AI 영상 생성 +<br>CapCut 편집</div>
       </div>
       <div class="stat-item">
         <div class="stat-num">5단계</div>
-        <div class="stat-desc">기원→역사→습성→<br>스토리→K-진돗개 시리즈</div>
+        <div class="stat-desc stat-desc-dark">기원→역사→습성→<br>스토리→K-진돗개 시리즈</div>
       </div>
     </div>
 
     <div class="sie-grid">
-      <div class="sie-card-dark">
-        <div class="sie-num sie-num-dark">01 · SITUATION</div>
-        <div class="sie-title sie-title-dark">가장 흔한 우리 개, 가장 외면받는 우리 개</div>
-        <div class="sie-body sie-body-dark">진돗개와 진도믹스는 우리 주변에서 가장 흔히 만나는 개지만, '사납다', '한 주인만 따른다', '실내에서 키우기 어렵다'는 편견 때문에 국내 입양에서 외면받고 있습니다. 보호소의 진도믹스들이 오히려 해외에서 새 가족을 찾는 일이 많을 만큼, 정작 우리나라에서 차별받고 있습니다.</div>
+      <div class="sie-card">
+        <div class="sie-num">01 · SITUATION</div>
+        <div class="sie-title">가장 흔한 우리 개, 가장 외면받는 우리 개</div>
+        <div class="sie-body">진돗개와 진도믹스는 우리 주변에서 가장 흔히 만나는 개지만, '사납다', '한 주인만 따른다', '실내에서 키우기 어렵다'는 편견 때문에 국내 입양에서 외면받고 있습니다. 보호소의 진도믹스들이 오히려 해외에서 새 가족을 찾는 일이 많을 만큼, 정작 우리나라에서 차별받고 있습니다.</div>
       </div>
-      <div class="sie-card-dark">
-        <div class="sie-num sie-num-dark">02 · INSIGHT</div>
-        <div class="sie-title sie-title-dark">편견은 '잘 모르는 데서' 시작된다</div>
-        <div class="sie-body sie-body-dark">진돗개의 기원·역사·습성을 제대로 알면 인식이 바뀌고, 바뀐 인식이 입양으로 이어질 수 있다고 판단했습니다. 무거운 캠페인 대신, 누구나 끝까지 보는 짧고 가벼운 질문형 쇼츠로 풀기로 했습니다.</div>
+      <div class="sie-card">
+        <div class="sie-num">02 · INSIGHT</div>
+        <div class="sie-title">편견은 '잘 모르는 데서' 시작된다</div>
+        <div class="sie-body">진돗개의 기원·역사·습성을 제대로 알면 인식이 바뀌고, 바뀐 인식이 입양으로 이어질 수 있다고 판단했습니다. 무거운 캠페인 대신, 누구나 끝까지 보는 짧고 가벼운 질문형 쇼츠로 풀기로 했습니다.</div>
       </div>
-      <div class="sie-card-dark">
-        <div class="sie-num sie-num-dark">03 · EXECUTION</div>
-        <div class="sie-title sie-title-dark">AI 영상 + 질문형 훅의 시리즈 운영</div>
-        <div class="sie-body sie-body-dark">'진돗개는 외국개다?'처럼 통념을 뒤집는 질문으로 시작해 기원 → 역사 → 습성 → 감동 스토리 → K-진돗개 순으로 시리즈를 구성했습니다. AI로 영상을 만들고 CapCut으로 편집해 이틀에 한 편씩 업로드하며 채널을 혼자 운영하고 있습니다.</div>
+      <div class="sie-card">
+        <div class="sie-num">03 · EXECUTION</div>
+        <div class="sie-title">AI 영상 + 질문형 훅의 시리즈 운영</div>
+        <div class="sie-body">'진돗개는 외국개다?'처럼 통념을 뒤집는 질문으로 시작해 기원 → 역사 → 습성 → 감동 스토리 → K-진돗개 순으로 시리즈를 구성했습니다. AI로 영상을 만들고 CapCut으로 편집해 이틀에 한 편씩 업로드하며 채널을 혼자 운영하고 있습니다.</div>
       </div>
     </div>
 
     <!-- 쇼츠 살펴보기 -->
     <div class="work-section">
-      <div class="work-header work-header-dark">
+      <div class="work-header">
         <div class="work-meta">
-          <div class="work-type work-type-dark">YouTube Shorts · 우리 진도 바로알기</div>
-          <div class="work-title work-title-dark">비빔진도 @bibim_jindo</div>
+          <div class="work-type">YouTube Shorts · 우리 진도 바로알기</div>
+          <div class="work-title">비빔진도 @bibim_jindo</div>
         </div>
       </div>
-      <p class="work-body work-body-dark">진돗개에 대한 오해를 하나씩 짚는 정보형 쇼츠 시리즈. 썸네일을 누르면 영상으로 이동합니다.</p>
+      <p class="work-body">진돗개에 대한 오해를 하나씩 짚는 정보형 쇼츠 시리즈. 썸네일을 누르면 영상으로 이동합니다.</p>
       <div class="work-links">
-        <a href="https://www.youtube.com/@bibim_jindo/shorts" target="_blank" class="work-link work-link-dark">채널 바로가기 ›</a>
+        <a href="https://www.youtube.com/@bibim_jindo/shorts" target="_blank" class="work-link">채널 바로가기 ›</a>
       </div>
       <div class="shorts-grid">
         <a href="https://www.youtube.com/shorts/SxupTynledc" target="_blank" class="shorts-card">
@@ -1974,13 +1996,13 @@ footer {
 
     <!-- Tools -->
     <div class="work-section">
-      <div class="work-type work-type-dark" style="margin-bottom:16px;">Tools &amp; Skills</div>
+      <div class="work-type" style="margin-bottom:16px;">Tools &amp; Skills</div>
       <div class="work-tags">
-        <span class="work-tag-dark">콘텐츠 기획</span>
-        <span class="work-tag-dark">AI 영상 생성</span>
-        <span class="work-tag-dark">CapCut 편집</span>
-        <span class="work-tag-dark">유튜브 쇼츠 채널 운영</span>
-        <span class="work-tag-dark">사회적 인식 개선 캠페인</span>
+        <span class="work-tag">콘텐츠 기획</span>
+        <span class="work-tag">AI 영상 생성</span>
+        <span class="work-tag">CapCut 편집</span>
+        <span class="work-tag">유튜브 쇼츠 채널 운영</span>
+        <span class="work-tag">사회적 인식 개선 캠페인</span>
       </div>
     </div>
 
