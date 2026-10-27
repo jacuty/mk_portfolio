@@ -820,6 +820,22 @@ footer {
 }
 @media (prefers-reduced-motion: reduce) { .tab-panel { animation: none; } }
 
+
+/* ── DARK CHAPTER (AI Side Projects) ── */
+.chapter-dark .chapter-head, .chapter-dark .tabbar-wrap { background: var(--surface-black); color: var(--on-dark); }
+.chapter-dark .chapter-head { padding-top: 96px; }
+.chapter-dark .chapter-head .display-md { color: var(--on-dark); }
+.chapter-dark .chapter-desc { color: rgba(255,255,255,0.6); }
+.chapter-dark .tabbar-wrap { border-bottom-color: rgba(255,255,255,0.14); }
+.chapter-dark .tabbar-wrap.is-stuck { background: rgba(0,0,0,0.86); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+.chapter-dark .tab-btn .tab-name, .chapter-dark .tab-btn .tab-sub { color: rgba(255,255,255,0.5); }
+.chapter-dark .tab-btn:hover { border-color: rgba(255,255,255,0.2); }
+.chapter-dark .tab-btn:hover .tab-name { color: var(--on-dark); }
+.chapter-dark .tab-btn[aria-selected="true"] { border-color: var(--brand-yellow); }
+.chapter-dark .tab-btn[aria-selected="true"] .tab-name { color: var(--on-dark); }
+.chapter-dark .tab-btn[aria-selected="true"] .tab-sub { color: rgba(255,255,255,0.72); }
+.chapter-dark .tab-btn:focus-visible { outline-color: var(--brand-yellow); }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 834px) {
   .nav-links { display: none; }
@@ -1639,14 +1655,14 @@ footer {
 </div>
 
 <!-- ══ CHAPTER: AI Side Projects ══ -->
-<div class="chapter" id="ai-projects">
-  <section class="chapter-head tile tile-parchment">
+<div class="chapter chapter-dark" id="ai-projects">
+  <section class="chapter-head tile">
     <div class="tile-inner">
       <h2 class="display-md">AI Side Projects</h2>
       <p class="chapter-desc">마케터의 문제의식에서 출발해 기획·디자인·개발·콘텐츠 제작까지 혼자 완성한 세 가지 프로젝트</p>
     </div>
   </section>
-  <div class="tabbar-wrap tile-parchment">
+  <div class="tabbar-wrap">
     <div class="tabbar" role="tablist" aria-label="AI Side Projects">
       <button class="tab-btn" role="tab" data-tab="addashboard" aria-selected="true">
         <span class="tab-name">마케팅 대시보드</span><span class="tab-sub">2026 · 웹 대시보드</span>
